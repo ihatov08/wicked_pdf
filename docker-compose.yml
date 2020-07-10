@@ -1,0 +1,22 @@
+version: "3"
+services:
+  sinatra:
+    build:
+      context: .
+    command: bundle exec rackup -o 0.0.0.0 -p 8080
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app:delegated
+      - bundle:/usr/local/bundle:delegated
+    ports:
+      - 8080:8080
+    networks:
+      - common_link
+
+volumes:
+  bundle:
+
+networks:
+    common_link:
+      external: true
