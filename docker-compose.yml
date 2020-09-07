@@ -12,11 +12,11 @@ services:
     ports:
       - 8080:8080
     networks:
-      - common_link
+      - hr-analyst-network
 
 volumes:
   bundle:
 
 networks:
-    common_link:
+    hr-analyst-network:
       external: true
