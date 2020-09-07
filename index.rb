@@ -10,8 +10,6 @@ get "/" do
 end
 
 post "/pdf" do
-  puts params[:options] || "no params🍺"
-    File.open("pdf.html", "w"){|f| f.puts params[:view] }
   pdf = WickedPdf.new.pdf_from_string(params[:view], params[:options])
 
   content_type "pdf"
